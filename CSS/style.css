@@ -1,0 +1,65 @@
+body {
+    background-color: rgb(28, 28, 28);
+    margin: 0;
+}
+::selection{
+    color: #CE0000;
+    background-color: rgb(28, 28, 28);
+}
+#Header {
+    border-bottom: 0.1em solid rgb(35, 35, 35);
+}
+#Header_Section {
+    margin: 0.5em 0.5em 0;
+    display: flex;
+    justify-content: space-between;
+}
+#Logo_Name {
+    font-size: 3em;
+    color: white;
+    font-family: 'Kalam', cursive;
+    display: flex;
+    align-items: center;
+}
+#Logo_Name img {
+    width: 1.1em;
+    height: 1.1em;
+    margin: 0.2em 0.5em 0.4em;
+}
+#Logo_Name p {
+    display: inline-block;
+    margin: 0;
+}
+#Search_Account {
+    display: flex;
+    align-items: center;
+}
+#Search_Box {
+    width: 19em;
+    height: 2.5em;
+    color: white;
+    font-size: 0.9em;
+    font-weight: 500;
+    font-family: 'Quicksand', sans-serif;
+    outline: none;
+    border: 0.14em solid rgb(136, 136, 136);
+    background-color: rgba(46, 46, 46, 0);
+    border-radius: 1.5em;
+    padding-left: 1em;
+    padding-right: 1em;
+    letter-spacing: 0.1em;
+}
+#Search_Box:focus {
+    outline: none;
+    background-color: rgb(35, 35, 35);
+    border-color: white;
+    box-shadow: 0 0 1em 0.4em rgb(40, 40, 40) ;
+}
+#Account {
+    width: 2.5em;
+    height: 2.5em;
+    border-radius: 50%;
+    border-width: 0;
+    margin-left: 4em;
+    margin-right: 4em;
+}
