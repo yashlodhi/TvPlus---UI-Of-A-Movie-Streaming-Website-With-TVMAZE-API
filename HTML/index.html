@@ -26,8 +26,9 @@
         <nav id="Nav_Section">
 
             <div id="Logo_Name">
-                <img src="../IMAGES/Favicon.png">
-                <p>TvPlus</p>
+                <a href="../HTML/index.html"><img src="../IMAGES/Favicon.png">
+                    <p>TvPlus</p>
+                </a>
             </div>
 
             <div id="Search_Account">
@@ -82,8 +83,9 @@
 
             <div id="Movie_Video_Image">
                 <div>
-                    <video width="100%" loop autoplay muted>
-                        <source src="../IMAGES/Jurassic_World.webm" type="video/webm">
+                    <video width="100%" height="100%" autoplay>
+                        <source src="../IMAGES/Jurassic_World.mp4" type="video/mp4">
+                        Error Loading The Preview
                     </video>
                     <p id="p"></p>
                 </div>
@@ -95,10 +97,24 @@
                         <p id="Rating">5.6/10</p>
                         <p id="Genre">Action, Adventure, Sci-Fi</p>
                     </div>
-                    <p id="Starring">Starring Chris Pratt, Bryce Dallas Howard, Laura Dern</p>
-                    <p id="Description">Four years after the destruction of Isla Nublar, Biosyn operatives attempt to track down Maisie Lockwood, while Dr Ellie Sattler investigates a genetically engineered swarm of giant insects.</p>
+                    <p id="Description">Four years after the destruction of Isla Nublar, Biosyn operatives attempt to
+                        track down Maisie Lockwood, while Dr Ellie Sattler investigates a genetically engineered swarm
+                        of giant insects.</p>
                     <button id="WatchNow"><img src="../IMAGES/Play.png"> Watch Now</button>
                 </div>
+            </div>
+
+            <div class="Movies_Showcase">
+                <p>Trending Movies & Shows</p>
+                <div class="Movies_List"></div>
+            </div>
+            <div class="Movies_Showcase">
+                <p>New Releases</p>
+                <div class="Movies_List"></div>
+            </div>
+            <div class="Movies_Showcase">
+                <p>Top Rated</p>
+                <div class="Movies_List"></div>
             </div>
         </section>
 

@@ -2,6 +2,9 @@ body {
     background-color: rgb(28, 28, 28);
     margin: 0;
 }
+html, body { 
+    scroll-behavior: smooth
+}
 ::selection {
     color: #CE0000;
     background-color: rgb(28, 28, 28);
@@ -20,8 +23,6 @@ body {
     font-size: 3em;
     color: white;
     font-family: 'Kalam', cursive;
-    display: flex;
-    align-items: center;
 }
 #Logo_Name img {
     width: 1.1em;
@@ -31,6 +32,12 @@ body {
 #Logo_Name p {
     display: inline-block;
     margin: 0;
+}
+#Logo_Name a{
+    text-decoration: none;
+    color: white;
+    display: flex;
+    align-items: center;
 }
 #Search_Account {
     display: flex;
@@ -70,20 +77,21 @@ body {
 }
 #Sidebar{
     min-width:20%;
-    white-space: nowrap;
-    overflow: hidden;
     font-family: 'Noto Sans', sans-serif;;
     border-right: 0.1em solid rgb(35, 35, 35);
-    height:50em;
+    height:100vh;
+    white-space: nowrap;
+    overflow: hidden;
     overflow-y:scroll;
     overflow-x:hidden;
     scrollbar-width: 0;
     scroll-behavior: smooth;
-    
+    position: sticky;
+    top:0px;
 }
 ::-webkit-scrollbar {
     width: 0px;  /* Remove scrollbar space */
-    background: transparent;  /* Optional: just make scrollbar invisible */
+    display: none;
 }
 ul {
     list-style: none;
@@ -167,7 +175,7 @@ ul {
     border-left: 0;
     padding-left: 0;
 }
-#Starring, #Description{
+#Description{
     margin:0em 3em 1em;
     max-width:50%;
     font-size: 150%;
@@ -194,6 +202,42 @@ ul {
     height: 1.5em;
     padding-right: 0.3em;
 }
+.Movies_Showcase{
+    font-size: 2.3vw;
+    margin:2em 1em;
+}
+.Movies_Showcase p{
+    color: white;
+    letter-spacing: 0.1em;
+    margin:0.5em;
+}
+.Movies_List{
+    border: 0.1em solid rgb(35, 35, 35);
+    background-color: rgb(19, 19, 19);
+    border-radius: 1em;
+    max-height: 10em;
+    white-space: nowrap;
+    overflow: hidden;
+    overflow-x:scroll;
+    overflow-y:hidden;
+    scrollbar-width: 0em;
+    scroll-behavior:smooth;
+    overscroll-behavior: contain;
+    padding: 0em;
+}
+.Movies_List img{
+    width:7em;
+    height:9em;
+    border-radius: 0.7em;
+    margin: 0.5em;
+    margin-right: 0;
+    transition: 0.25s ease-out;
+}
+.Movies_List img:hover{
+    transform: scale(1.03);
+}
+
+
 
 @media screen and (max-width: 1300px) {
     #Sidebar{
