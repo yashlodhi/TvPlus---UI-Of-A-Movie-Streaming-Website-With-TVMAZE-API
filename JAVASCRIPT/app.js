@@ -109,6 +109,7 @@ let genreList = [
 let trendingMoviesList = [] ;
 let newReleasesMoviesList = [] ;
 let topRatedMoviesList = [] ; 
+let ResultAreaMoviesList = [] ; 
 
 async function getTrendingShows() {
     try{
@@ -141,26 +142,25 @@ async function getTopRated() {
     }
 }
 async function getMoviesByGenre(genre) {
-    try{
-        const response = await fetch(`https://imdb-api.com/API/AdvancedSearch/k_dm8mowd8/?genres=`+genre.toLowerCase().replace(" ",""));
-        const jsonData = await response.json();
-        return jsonData.results ; 
-    }
-    catch(error){
-        console.log(error)
-        console.log("THE DAIDLY LIMIT OF 100 API CALLS MIGHT HAVE REACHED") ; 
-    }
+    // try{
+    //     const response = await fetch();
+    //     const jsonData = await response.json();
+    //     return jsonData.results ; 
+    // }
+    // catch(error){
+    //     console.log(error)
+    // }
 }
 async function getMoviesByLang(lang) {
-    try{
-        const response = await fetch(`https://imdb-api.com/API/AdvancedSearch/k_dm8mowd8/?languages=`+lang.toLowerCase().slice(0,2));
-        const jsonData = await response.json();
-        return jsonData.results ; 
-    }
-    catch(error){
-        console.log(error)
-        console.log("THE DAIDLY LIMIT OF 100 API CALLS MIGHT HAVE REACHED") ; 
-    }
+    // try{
+    //     const response = await fetch();
+    //     const jsonData = await response.json();
+    //     return jsonData.results ; 
+    // }
+    // catch(error){
+    //     console.log(error)
+    //     console.log("THE DAIDLY LIMIT OF 100 API CALLS MIGHT HAVE REACHED") ; 
+    // }
 }
 async function getMoviesForKids(cartoonTitle) {
     try{
@@ -170,7 +170,16 @@ async function getMoviesForKids(cartoonTitle) {
     }
     catch(error){
         console.log(error)
-        console.log("THE DAIDLY LIMIT OF 100 API CALLS MIGHT HAVE REACHED") ; 
+    }
+}
+async function getMoviesBySearch(query) {
+    try{
+        const response = await fetch(`https://api.themoviedb.org/3/search/movie?query=`+query.toLowerCase()+"&api_key=d170b89569a0f5f6e085a0052a0e5b84");
+        const jsonData = await response.json();
+        return jsonData.results ; 
+    }
+    catch(error){
+        console.log(error)
     }
 }
 
@@ -200,8 +209,8 @@ let description = document.querySelector('#Description')
 let background = document.querySelector('#Movie_Video_Image div')
 let genreArray , j ; 
 let background_image_src ; 
-
 let items = document.getElementsByClassName("Movies_List");
+let search = document.querySelector("#Search_Box");
 
 for(let i=0;i<3;i++){
     items[i].addEventListener("wheel", function (e) {
@@ -210,15 +219,20 @@ for(let i=0;i<3;i++){
     })
 }
 
-function addEventForMovies(parentArea,List){
-    parentArea.addEventListener('click',function(e){
-        let id = e.target.id ; 
+function ContentDisplay(parentArea,List){
+  parentArea.addEventListener('click',function(e){
+        let id = e.target.id ;
         if(id!=="")
         {
-            id = parseInt(id); 
+            id = parseInt(id);
+            console.log(List)
+            ResultArea.style.transition = "0.2s"; 
+            ResultArea.style.height = "0%";
+            ResultArea.innerHTML="";
+            search.value = "";
             title.innerText =  List[id].title ;
             language.innerText =  List[id].original_language ;
-            year.innerText =  List[id].release_date.slice(0,4) ; 
+            year.innerText =  List[id].release_date.slice(0,4) ;
             rating.innerText =  List[id].vote_average ; 
             genreArray = List[id].genre_ids ; 
             let genreStrings = "" ; 
@@ -235,17 +249,24 @@ function addEventForMovies(parentArea,List){
             }
             genre.innerText =  genreStrings.slice(0,-2)
             description.innerText =  List[id].overview ;
-            background_image_src = `${'https://image.tmdb.org/t/p/original'+List[id].backdrop_path}`
-            background.innerHTML = `<img src=${background_image_src}><p id="p"></p>`;
+            if(!List[id].backdrop_path)
+            {
+              background.innerHTML= `<img width="100" height="100" src=""><p id="p"></p>`;
+              background.style.backgroungColor = "black"
+            }
+            else{
+              background_image_src = `${'https://image.tmdb.org/t/p/original'+List[id].backdrop_path}`
+              background.innerHTML = `<img src=${background_image_src}><p id="p"></p>`;
+            }
             videoJobFinished = true ; 
             window.scrollTo(0, 0);
         }
     })
 }
 
-addEventForMovies(items[0],trendingMoviesList)
-addEventForMovies(items[1],newReleasesMoviesList)
-addEventForMovies(items[2],topRatedMoviesList)
+ContentDisplay(items[0],trendingMoviesList)
+ContentDisplay(items[1],newReleasesMoviesList)
+ContentDisplay(items[2],topRatedMoviesList)
 
 
 
@@ -254,58 +275,88 @@ let sidebarMoviesCategories = document.querySelectorAll(".Movies_Categories_List
 let ResultArea = document.querySelector("#ResultArea") ;
 
 logoAndName.addEventListener('click',()=>{
-  ResultArea.style.height = "0%";
   ResultArea.style.transition = "0.2s"; 
+  ResultArea.style.height = "0%";
   ResultArea.innerHTML="";
 } ) 
 
-sidebarMoviesCategories[0].addEventListener('click',async function(e){
-  if(e.target.localName==='li'){
-    ResultArea.innerHTML="";
-    keyword = e.target.innerText ;
-    ResultArea.style.transition = "1s"
-    ResultArea.style.height = "100%" ; 
-    let List = await getMoviesByGenre(keyword) ; 
-    console.log(List)
-    for(let i=0;i<List.length;i++)
-    {
-        let image = document.createElement('img');
-        image.src = List[i].image ;
-        image.id = `${i}` ; 
-        ResultArea.appendChild(image);        
-    }
-  }
-})
-sidebarMoviesCategories[1].addEventListener('click',async function(e){
-  if(e.target.localName==='li'){
-    ResultArea.innerHTML="";
-    keyword = e.target.innerText ;
-    ResultArea.style.transition = "1s"
-    ResultArea.style.height = "100%" ; 
-    let List = await getMoviesByLang(keyword) ; 
-    for(let i=0;i<List.length;i++)
-    {
-        let image = document.createElement('img');
-        image.src = List[i].image ;
-        image.id = `${i}` ; 
-        ResultArea.appendChild(image);       
-    }
-  }
-})
+// sidebarMoviesCategories[0].addEventListener('click',async function(e){
+//   if(e.target.localName==='li'){
+//     ResultArea.innerHTML="";
+//     keyword = e.target.innerText ;
+//     ResultArea.style.transition = "1s"
+//     ResultArea.style.height = "100%" ; 
+//     let List = [] ; 
+//     List.push(...(await getMoviesByGenre(keyword)))
+//     console.log(List)
+//     for(let i=0;i<List.length;i++)
+//     {
+//         let image = document.createElement('img');
+//         image.src = List[i].image ;
+//         image.id = `${i}` ; 
+//         ResultArea.appendChild(image);        
+//     }
+//   }
+// })
+// sidebarMoviesCategories[1].addEventListener('click',async function(e){
+//   if(e.target.localName==='li'){
+//     ResultArea.innerHTML="";
+//     keyword = e.target.innerText ;
+//     ResultArea.style.transition = "1s"
+//     ResultArea.style.height = "100%" ; 
+//     let List = await getMoviesByLang(keyword) ; 
+//     for(let i=0;i<List.length;i++)
+//     {
+//         let image = document.createElement('img');
+//         image.src = List[i].image ;
+//         image.id = `${i}` ; 
+//         ResultArea.appendChild(image);       
+//     }
+//   }
+// })
+
+
 sidebarMoviesCategories[2].addEventListener('click',async function(e){
   if(e.target.localName==='li'){
     ResultArea.innerHTML="";
     keyword = e.target.innerText ;
     ResultArea.style.transition = "1s"
     ResultArea.style.height = "100%" ; 
-    let List = await getMoviesByLang(keyword) ; 
-    for(let i=0;i<List.length;i++)
+    ResultAreaMoviesList = [] ; 
+    ResultAreaMoviesList.push(...(await getMoviesForKids(keyword))) ;
+    for(let i=0;i<ResultAreaMoviesList.length;i++)
     {
+      if(ResultAreaMoviesList[i].poster_path)
+      {
         let image = document.createElement('img');
-        image.src = `${'https://image.tmdb.org/t/p/original'+List[i].poster_path}` ;
+        image.src = "https://image.tmdb.org/t/p/original"+ResultAreaMoviesList[i].poster_path;
         image.id = `${i}` ; 
         ResultArea.appendChild(image);
+      }
     }
   }
+  ContentDisplay(ResultArea,ResultAreaMoviesList)
 })
 
+
+search.addEventListener('change', async function(e){
+  let query = search.value
+  if(query){
+    ResultAreaMoviesList = [] ; 
+    ResultAreaMoviesList.push(...(await getMoviesBySearch(query))) 
+    ResultArea.innerHTML="";
+    ResultArea.style.transition = "1s"
+    ResultArea.style.height = "100%" ; 
+    for(let i=0;i<ResultAreaMoviesList.length;i++)
+    {
+      if(ResultAreaMoviesList[i].poster_path)
+      {
+        let image = document.createElement('img');
+        image.src = "https://image.tmdb.org/t/p/original"+ResultAreaMoviesList[i].poster_path;
+        image.id = `${i}` ; 
+        ResultArea.appendChild(image);
+      }
+    }
+  }
+  ContentDisplay(ResultArea,ResultAreaMoviesList)
+})

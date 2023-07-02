@@ -189,9 +189,17 @@ ul {
     padding-left: 0;
 }
 #Description{
+    display: block;
     margin:0em 3em 1em;
     max-width:50%;
+    max-height: 8em;
     font-size: 150%;
+    word-wrap: break-word;
+    overflow: hidden;
+    overflow-y:scroll;
+    overflow-x:hidden;
+    scrollbar-width: 0;
+    scroll-behavior: smooth;
 }
 #WatchNow{
     display: flex;
