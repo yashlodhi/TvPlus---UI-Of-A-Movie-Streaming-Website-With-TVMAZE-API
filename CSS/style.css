@@ -91,7 +91,7 @@ html, body {
     top:0px;
 }
 ::-webkit-scrollbar {
-    width: 0px;  /* Remove scrollbar space */
+    width: 0px;  
     display: none;
 }
 ul {
@@ -144,7 +144,7 @@ ul {
 #p{
     content: "";
     width:100%;
-    height: 40vh;
+    height: 22em;
     margin:0;
     position: absolute;
     z-index: 2;
@@ -286,11 +286,21 @@ ul {
 
 
 
+@media screen and (min-width: 1900px) {
+    #Sidebar{
+        font-size: 1.5em;
+    }
+}
 @media screen and (max-width: 1300px) {
     #Sidebar{
         width:10%;
         font-size: 0.7em;
     }
+    #p{
+        height:15em;
+    }
+    .Movies_Showcase{
+        font-size: 3vw;
 }
 @media screen and (max-width: 1000px) {
     #Account{
@@ -327,7 +337,7 @@ ul {
 }
 @media screen and (max-width: 600px) {
     #Header{
-        font-size: 2.25vw;
+        font-size: 2.6vw;
     }
     #p{
         height: 28vh;

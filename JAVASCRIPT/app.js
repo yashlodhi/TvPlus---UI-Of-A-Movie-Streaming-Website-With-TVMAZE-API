@@ -172,9 +172,29 @@ async function getMoviesForKids(cartoonTitle) {
         console.log(error)
     }
 }
+async function getTVShowsForKids(cartoonTitle) {
+    try{
+        const response = await fetch(`https://api.themoviedb.org/3/search/tv?query=`+cartoonTitle.toLowerCase()+"&api_key=d170b89569a0f5f6e085a0052a0e5b84");
+        const jsonData = await response.json();
+        return jsonData.results ; 
+    }
+    catch(error){
+        console.log(error)
+    }
+}
 async function getMoviesBySearch(query) {
     try{
         const response = await fetch(`https://api.themoviedb.org/3/search/movie?query=`+query.toLowerCase()+"&api_key=d170b89569a0f5f6e085a0052a0e5b84");
+        const jsonData = await response.json();
+        return jsonData.results ; 
+    }
+    catch(error){
+        console.log(error)
+    }
+}
+async function getTVShowsBySearch(query) {
+    try{
+        const response = await fetch(`https://api.themoviedb.org/3/search/tv?query=`+query.toLowerCase()+"&api_key=d170b89569a0f5f6e085a0052a0e5b84");
         const jsonData = await response.json();
         return jsonData.results ; 
     }
@@ -230,9 +250,15 @@ function ContentDisplay(parentArea,List){
             ResultArea.style.height = "0%";
             ResultArea.innerHTML="";
             search.value = "";
-            title.innerText =  List[id].title ;
+            if(List[id].hasOwnProperty("name")){
+              title.innerText =  List[id].name ;
+              year.innerText =  List[id].first_air_date.slice(0,4) ;
+            }
+            else{
+              title.innerText =  List[id].title ;
+              year.innerText =  List[id].release_date.slice(0,4) ;
+            }
             language.innerText =  List[id].original_language ;
-            year.innerText =  List[id].release_date.slice(0,4) ;
             rating.innerText =  List[id].vote_average ; 
             genreArray = List[id].genre_ids ; 
             let genreStrings = "" ; 
@@ -251,7 +277,7 @@ function ContentDisplay(parentArea,List){
             description.innerText =  List[id].overview ;
             if(!List[id].backdrop_path)
             {
-              background.innerHTML= `<img width="100" height="100" src=""><p id="p"></p>`;
+              background.innerHTML= `<img width="100" height="50" src=""><p id="p"></p>`;
               background.style.backgroungColor = "black"
             }
             else{
@@ -322,7 +348,9 @@ sidebarMoviesCategories[2].addEventListener('click',async function(e){
     keyword = e.target.innerText ;
     ResultArea.style.transition = "1s"
     ResultArea.style.height = "100%" ; 
+    window.scrollTo(0, 0); 
     ResultAreaMoviesList = [] ; 
+    ResultAreaMoviesList.push(...(await getTVShowsForKids(keyword))) ;
     ResultAreaMoviesList.push(...(await getMoviesForKids(keyword))) ;
     for(let i=0;i<ResultAreaMoviesList.length;i++)
     {
@@ -343,10 +371,12 @@ search.addEventListener('change', async function(e){
   let query = search.value
   if(query){
     ResultAreaMoviesList = [] ; 
+    ResultAreaMoviesList.push(...(await getTVShowsBySearch(query))) 
     ResultAreaMoviesList.push(...(await getMoviesBySearch(query))) 
     ResultArea.innerHTML="";
     ResultArea.style.transition = "1s"
-    ResultArea.style.height = "100%" ; 
+    ResultArea.style.height = "100%" ;
+    window.scrollTo(0, 0); 
     for(let i=0;i<ResultAreaMoviesList.length;i++)
     {
       if(ResultAreaMoviesList[i].poster_path)
