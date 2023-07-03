@@ -259,7 +259,11 @@ function ContentDisplay(parentArea,List){
               year.innerText =  List[id].release_date.slice(0,4) ;
             }
             language.innerText =  List[id].original_language ;
-            rating.innerText =  List[id].vote_average ; 
+            if(List[id].vote_average>3){
+              rating.innerText =  List[id].vote_average.toPrecision(2)+"/10" ; 
+            }else {
+              rating.innerText =  'N/A' ; 
+            }
             genreArray = List[id].genre_ids ; 
             let genreStrings = "" ; 
             for(let i in genreArray)
@@ -299,6 +303,9 @@ ContentDisplay(items[2],topRatedMoviesList)
 let logoAndName = document.querySelector("#Logo_Name") ; 
 let sidebarMoviesCategories = document.querySelectorAll(".Movies_Categories_List") ; 
 let ResultArea = document.querySelector("#ResultArea") ;
+let sidebar = document.querySelector("#Sidebar") ; 
+let menu = document.querySelector("#Menu") ; 
+let isMenuOpen = false ; 
 
 logoAndName.addEventListener('click',()=>{
   ResultArea.style.transition = "0.2s"; 
@@ -363,10 +370,34 @@ sidebarMoviesCategories[2].addEventListener('click',async function(e){
       }
     }
   }
+  sidebar.classList.remove("Sidebar_With_Menu") ; 
+  menu.classList.remove("TurnedMenu") ; 
+  isMenuOpen = false ;
   ContentDisplay(ResultArea,ResultAreaMoviesList)
 })
 
 
+
+window.addEventListener('click',(e)=>{
+  if(e.target.id !== "Menu"){
+  sidebar.classList.remove("Sidebar_With_Menu")
+  menu.classList.remove("TurnedMenu");
+  isMenuOpen = false ; 
+  }
+})
+menu.addEventListener('click' , function(){
+  if(isMenuOpen)
+  {
+    sidebar.classList.remove("Sidebar_With_Menu") ;
+    menu.classList.remove("TurnedMenu") ; 
+    isMenuOpen = false ;
+  }
+  else{
+    sidebar.classList.add("Sidebar_With_Menu") ; 
+    menu.classList.add("TurnedMenu") ; 
+    isMenuOpen = true ;
+  }
+} )
 search.addEventListener('change', async function(e){
   let query = search.value
   if(query){
@@ -388,5 +419,9 @@ search.addEventListener('change', async function(e){
       }
     }
   }
+  sidebar.classList.remove("Sidebar_With_Menu") ; 
+  menu.classList.remove("TurnedMenu") ; 
+  isMenuOpen = false ;
   ContentDisplay(ResultArea,ResultAreaMoviesList)
 })
+
