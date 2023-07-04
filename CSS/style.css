@@ -459,6 +459,9 @@ ul {
     .Movies_Showcase,#ResultArea{
         font-size: 4.5vw;
     } 
+    .Movies_Showcase p{
+        font-size: 4.5vw;
+    }
     .Sidebar_With_Menu{
         font-size: 2.75vw !important;
         width:50% !important;
