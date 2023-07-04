@@ -439,7 +439,10 @@ ul {
 }
 @media screen and (max-width: 600px) {
     #Nav_Section{
-        font-size: 2.4vw;
+        font-size: 2.6vw;
+    }
+    #Search_Box{
+        width: 16em;
     }
     #p{
         height: 28vh;
@@ -456,6 +459,10 @@ ul {
     .Movies_Showcase,#ResultArea{
         font-size: 4.5vw;
     } 
+    .Sidebar_With_Menu{
+        font-size: 2.75vw !important;
+        width:50% !important;
+    }
 }
 @media screen and (max-width: 500px) {
     #Movie_Video_Image div{
@@ -467,13 +474,13 @@ ul {
     #Title{
         margin-left: 8vw;                              
     }
-    .Sidebar_With_Menu{
-        font-size: 2.75vw !important;
-        width:50% !important;
-    }
+    
 }
 @media screen and (max-width: 350px) {
-    
+    .Movies_Showcase,#ResultArea{
+        font-size: 4.5vw;
+    } 
+}
     #Movie_Video_Image div{
         height: 35vh ; 
     }
