@@ -9,8 +9,10 @@ categories on the home page, the sidebar and from the search bar.
 Click on the movie or TV show of your interest and the home page will be updated according to that 
 show or movie. 
 
+Click the logo on the upper left corner to go to the home page.
 
 Some shows and movies don't have a backdrop image and hence a black background will be displayed instead.
+
 Due to rules, the voice for the landing page video will only be played once you have interacted with the website.
 In our case, just pause and play the video to play the audio for the video.
 
