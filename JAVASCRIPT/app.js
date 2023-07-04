@@ -336,7 +336,6 @@ let genreArray ;
 let background_image_src ; 
 let items = document.getElementsByClassName("Movies_List");
 let search = document.querySelector("#Search_Box");
-
 for(let i=0;i<3;i++){
     items[i].addEventListener("wheel", function (e) {
         if (e.deltaY > 0) items[i].scrollLeft -= 350;

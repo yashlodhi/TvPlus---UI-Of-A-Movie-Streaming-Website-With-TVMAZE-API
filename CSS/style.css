@@ -415,6 +415,9 @@ ul {
     #Movie_Video_Image video{
         object-fit: fill;
     }
+    .Movies_List{
+        overscroll-behavior:auto;
+    }
 }
 @media screen and (max-width: 700px) { 
     #Logo_Name {
