@@ -453,6 +453,9 @@ ul {
     #Title{
         font-size: 6vw ;                              
     }
+    .Movies_Showcase,#ResultArea{
+        font-size: 4.5vw;
+    } 
 }
 @media screen and (max-width: 500px) {
     #Movie_Video_Image div{
