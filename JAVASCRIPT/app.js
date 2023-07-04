@@ -249,7 +249,7 @@ async function getTvShowsByGenre(genre_id) {
 }
 async function getMoviesByLang(lang) {
     try{
-        const response = await fetch("https://api.themoviedb.org/3/discover/movie?with_original_language="+lang+"&api_key=d170b89569a0f5f6e085a0052a0e5b84");
+        const response = await fetch("https://api.themoviedb.org/3/discover/movie?include_adult=false&with_original_language="+lang+"&api_key=d170b89569a0f5f6e085a0052a0e5b84");
         const jsonData = await response.json();
         return jsonData.results ; 
     }
@@ -259,7 +259,7 @@ async function getMoviesByLang(lang) {
 }
 async function getTVShowsByLang(lang) {
     try{
-        const response = await fetch("https://api.themoviedb.org/3/discover/tv?with_original_language="+lang+"&api_key=d170b89569a0f5f6e085a0052a0e5b84");
+        const response = await fetch("https://api.themoviedb.org/3/discover/tv?include_adult=false&with_original_language="+lang+"&api_key=d170b89569a0f5f6e085a0052a0e5b84");
         const jsonData = await response.json();
         return jsonData.results ; 
     }
@@ -345,11 +345,12 @@ for(let i=0;i<3;i++){
 }
 
 function ContentDisplay(parentArea,List){
-  parentArea.addEventListener('click',function(e){
+  parentArea.onclick = function(e){
         let id = e.target.id ;
-        if(id!=="")
+        id = parseInt(id);
+        if(id>=0)
         {
-            id = parseInt(id);
+            console.log(e.target)
             ResultArea.style.transition = "0.2s"; 
             ResultArea.style.height = "0%";
             ResultArea.innerHTML="";
@@ -399,7 +400,7 @@ function ContentDisplay(parentArea,List){
 
             if(!List[id].backdrop_path)
             {
-              background.innerHTML= `<img width="100" height="50" src=""><p id="p"></p>`;
+              background.innerHTML= `<img id="BlackImage" src="../IMAGES/Play.png">`;
               background.style.backgroungColor = "black"
             }
             else{
@@ -410,7 +411,7 @@ function ContentDisplay(parentArea,List){
             videoJobFinished = true ; 
             window.scrollTo(0, 0);
           }
-    })
+    }
 }
 
 ContentDisplay(items[0],trendingMoviesList)
@@ -473,7 +474,6 @@ sidebarMoviesCategories[0].addEventListener('click',async function(e){
       }
     }
   }
-
   ContentDisplay(ResultArea,ResultAreaMoviesList)
 })
 
@@ -582,6 +582,7 @@ window.addEventListener('click',(e)=>{
   isMenuOpen = false ; 
   }
 })
+
 menu.addEventListener('click' , function(){
   if(isMenuOpen)
   {
