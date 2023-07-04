@@ -431,10 +431,9 @@ ul {
         flex-direction: column;
         flex-wrap: wrap;
     }
-    
     .Sidebar_With_Menu{
         font-size: 1.75vw !important;
-        width:33% !important;
+        width:40% !important;
     }
     
 }
@@ -464,6 +463,10 @@ ul {
     }
     #Title{
         margin-left: 8vw;                              
+    }
+    .Sidebar_With_Menu{
+        font-size: 2.75vw !important;
+        width:50% !important;
     }
 }
 @media screen and (max-width: 350px) {
