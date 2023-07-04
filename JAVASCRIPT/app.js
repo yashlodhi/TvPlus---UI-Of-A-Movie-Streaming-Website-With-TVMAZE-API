@@ -350,7 +350,6 @@ function ContentDisplay(parentArea,List){
         id = parseInt(id);
         if(id>=0)
         {
-            console.log(e.target)
             ResultArea.style.transition = "0.2s"; 
             ResultArea.style.height = "0%";
             ResultArea.innerHTML="";
