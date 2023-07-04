@@ -420,7 +420,7 @@ ul {
         border: 0.1em solid rgb(35, 35, 35);
     }
 }
-@media (pointer:none){
+@media (hover: none) and (pointer: coarse){
     .Movies_List{
         overscroll-behavior:auto;
     }
