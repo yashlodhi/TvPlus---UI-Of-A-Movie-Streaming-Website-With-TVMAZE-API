@@ -268,7 +268,7 @@ ul {
     border: 0.1em solid rgb(35, 35, 35);
     background-color: rgb(19, 19, 19);
     border-radius: 1em;
-    max-height: 10em;
+    max-height: 11em;
     white-space: nowrap;
     overflow: hidden;
     overflow-x:scroll;
@@ -415,6 +415,12 @@ ul {
     #Movie_Video_Image video{
         object-fit: fill;
     }
+    
+    .Movies_List img,#ResultArea img{
+        border: 0.1em solid rgb(35, 35, 35);
+    }
+}
+@media (pointer:none){
     .Movies_List{
         overscroll-behavior:auto;
     }
@@ -430,7 +436,7 @@ ul {
         margin:0em 3em 1.5em;
     }
     .Movies_List{
-        max-height: 20em;
+        max-height: 22em;
         flex-direction: column;
         flex-wrap: wrap;
     }
@@ -471,6 +477,9 @@ ul {
     }
 }
 @media screen and (max-width: 500px) {
+    #Nav_Section{
+        padding: 1em 0;
+    }
     #Movie_Video_Image div{
         height: 48vh ; 
     }
