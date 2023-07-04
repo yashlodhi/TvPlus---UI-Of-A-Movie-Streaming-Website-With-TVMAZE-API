@@ -155,6 +155,7 @@ ul {
 }
 #Movie_Video_Image video{
     position: relative;
+    height: 100%;
     z-index: 0;
     top:-2em;
 }
@@ -194,8 +195,7 @@ ul {
 #Title{
     font-size: 4vw;
     font-weight: 600;
-    padding: 0 0 0 1em;
-    margin:1em 0em 0.9em ;
+    margin:1em 0em 1em 5vw;
     max-width: 75vw ;
     white-space: nowrap;
     overflow: hidden;
@@ -209,14 +209,17 @@ ul {
     display:inline-block;
     padding:0 0.8em ;
     margin: 0;
-    border-left: 2px solid rgb(233, 233, 233);
+    border-right: 2px solid rgb(233, 233, 233);
 }
 #Movie_Extra_Info p:nth-child(1){
-    border-left: 0;
+    padding-left: 0;
+}
+#Movie_Extra_Info p:nth-child(4){
+    border-right: 0;
     padding-left: 0;
 }
 #Description{
-    display: block;
+    display: inline-block;
     margin:0em 3em 1em;
     max-width:50%;
     max-height: 8em;
@@ -395,8 +398,21 @@ ul {
     .Movies_Showcase,#ResultArea{
         font-size: 3vw;
     } 
+    .Movies_Showcase p{
+        font-size: 4vw;
+    }
     .Sidebar_With_Menu ul:nth-child(1){
         padding-top: 0;
+    }
+    #Info_Movie{
+        font-size: 1.25vw;
+    }
+    #Title{
+        margin-left: 6vw ; 
+        font-size: 5vw ;    
+    }
+    #Movie_Video_Image video{
+        object-fit: fill;
     }
 }
 @media screen and (max-width: 700px) { 
@@ -419,13 +435,39 @@ ul {
         font-size: 1.75vw !important;
         width:33% !important;
     }
+    
 }
 @media screen and (max-width: 600px) {
-    #Header{
-        font-size: 2.6vw;
+    #Nav_Section{
+        font-size: 2.4vw;
     }
     #p{
         height: 28vh;
     }
-
+    #Movie_Video_Image div{
+        height: 50vh ; 
+    }
+    #Movie_Extra_Info{
+        height: 2em !important;
+    }
+    #Title{
+        font-size: 6vw ;                              
+    }
+}
+@media screen and (max-width: 500px) {
+    #Movie_Video_Image div{
+        height: 48vh ; 
+    }
+    #Info_Movie{
+        font-size: 1.75vw ; 
+    }
+    #Title{
+        margin-left: 8vw;                              
+    }
+}
+@media screen and (max-width: 350px) {
+    
+    #Movie_Video_Image div{
+        height: 35vh ; 
+    }
 }
