@@ -476,11 +476,12 @@ ul {
     }
     
 }
-@media screen and (max-width: 350px) {
+@media screen and (max-width: 450px) {
     .Movies_Showcase,#ResultArea{
-        font-size: 4.5vw;
+        font-size: 5vw;
     } 
 }
+@media screen and (max-width: 350px) {
     #Movie_Video_Image div{
         height: 35vh ; 
     }
