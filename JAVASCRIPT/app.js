@@ -399,7 +399,7 @@ function ContentDisplay(parentArea,List){
 
             if(!List[id].backdrop_path)
             {
-              background.innerHTML= `<img id="BlackImage" src="../IMAGES/Play.png">`;
+              background.innerHTML= `<img id="BlackImage" src="../IMAGES_AND_VIDEO/Play.png">`;
               background.style.backgroungColor = "black"
             }
             else{
