@@ -481,7 +481,7 @@ ul {
 }
 @media screen and (max-width: 450px) {
     .Movies_Showcase,#ResultArea{
-        font-size: 5vw;
+        font-size: 4.5vw;
     } 
 }
 @media screen and (max-width: 350px) {
