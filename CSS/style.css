@@ -419,10 +419,8 @@ ul {
     .Movies_List img,#ResultArea img{
         border: 0.1em solid rgb(35, 35, 35);
     }
-}
-@media (hover: none) and (pointer: coarse){
     .Movies_List{
-        overscroll-behavior:auto !important;
+        overscroll-behavior:auto ;
     }
 }
 @media screen and (max-width: 700px) { 
