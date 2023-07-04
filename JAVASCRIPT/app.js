@@ -1,9 +1,9 @@
-// FREE TMBD API = 8
-let Video = document.querySelector('video');
-let WatchNow = document.querySelector('#WatchNow');
-Video.currentTime=8;
-Video.volume=0;
-let isPlaying = true;
+let API_KEY = "d170b89569a0f5f6e085a0052a0e5b84" ;
+let Video = document.querySelector('video') ;
+let WatchNow = document.querySelector('#WatchNow') ;
+Video.currentTime=8 ;
+Video.volume=0 ;
+let isPlaying = true ;
 let videoJobFinished = false ;
 WatchNow.addEventListener('click',()=>{
   if(!videoJobFinished){
@@ -199,7 +199,7 @@ let ResultAreaMoviesList = [] ;
 
 async function getTrendingShows() {
     try{
-        const response = await fetch("https://api.themoviedb.org/3/trending/movie/day?language=en-US&api_key=d170b89569a0f5f6e085a0052a0e5b84");
+        const response = await fetch("https://api.themoviedb.org/3/trending/movie/day?language=en-US&api_key="+API_KEY);
         const jsonData = await response.json();
         return jsonData.results ; 
     }
@@ -209,7 +209,7 @@ async function getTrendingShows() {
 }
 async function getNewReleases() {
     try{
-        const response = await fetch("https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1&api_key=d170b89569a0f5f6e085a0052a0e5b84");
+        const response = await fetch("https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1&api_key="+API_KEY);
         const jsonData = await response.json();
         return jsonData.results ; 
     }
@@ -219,7 +219,7 @@ async function getNewReleases() {
 }
 async function getTopRated() {
     try{
-        const response = await fetch("https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1&api_key=d170b89569a0f5f6e085a0052a0e5b84");
+        const response = await fetch("https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1&api_key="+API_KEY);
         const jsonData = await response.json();
         return jsonData.results ; 
     }
@@ -229,7 +229,7 @@ async function getTopRated() {
 }
 async function getMoviesByGenre(genre_id) {
     try{
-        const response = await fetch("https://api.themoviedb.org/3/discover/movie?with_genres="+genre_id+"&api_key=d170b89569a0f5f6e085a0052a0e5b84");
+        const response = await fetch("https://api.themoviedb.org/3/discover/movie?with_genres="+genre_id+"&api_key="+API_KEY);
         const jsonData = await response.json();
         return jsonData.results ; 
     }
@@ -239,7 +239,7 @@ async function getMoviesByGenre(genre_id) {
 }
 async function getTvShowsByGenre(genre_id) {
     try{
-        const response = await fetch("https://api.themoviedb.org/3/discover/tv?with_genres="+genre_id+"&api_key=d170b89569a0f5f6e085a0052a0e5b84");
+        const response = await fetch("https://api.themoviedb.org/3/discover/tv?with_genres="+genre_id+"&api_key="+API_KEY);
         const jsonData = await response.json();
         return jsonData.results ; 
     }
@@ -249,7 +249,7 @@ async function getTvShowsByGenre(genre_id) {
 }
 async function getMoviesByLang(lang) {
     try{
-        const response = await fetch("https://api.themoviedb.org/3/discover/movie?include_adult=false&with_original_language="+lang+"&api_key=d170b89569a0f5f6e085a0052a0e5b84");
+        const response = await fetch("https://api.themoviedb.org/3/discover/movie?include_adult=false&with_original_language="+lang+"&api_key="+API_KEY);
         const jsonData = await response.json();
         return jsonData.results ; 
     }
@@ -259,7 +259,7 @@ async function getMoviesByLang(lang) {
 }
 async function getTVShowsByLang(lang) {
     try{
-        const response = await fetch("https://api.themoviedb.org/3/discover/tv?include_adult=false&with_original_language="+lang+"&api_key=d170b89569a0f5f6e085a0052a0e5b84");
+        const response = await fetch("https://api.themoviedb.org/3/discover/tv?include_adult=false&with_original_language="+lang+"&api_key="+API_KEY);
         const jsonData = await response.json();
         return jsonData.results ; 
     }
@@ -269,7 +269,7 @@ async function getTVShowsByLang(lang) {
 }
 async function getMoviesForKids(cartoonTitle) {
     try{
-        const response = await fetch(`https://api.themoviedb.org/3/search/movie?query=`+cartoonTitle.toLowerCase()+"&api_key=d170b89569a0f5f6e085a0052a0e5b84");
+        const response = await fetch(`https://api.themoviedb.org/3/search/movie?query=`+cartoonTitle.toLowerCase()+"&api_key="+API_KEY);
         const jsonData = await response.json();
         return jsonData.results ; 
     }
@@ -279,7 +279,7 @@ async function getMoviesForKids(cartoonTitle) {
 }
 async function getTVShowsForKids(cartoonTitle) {
     try{
-        const response = await fetch(`https://api.themoviedb.org/3/search/tv?query=`+cartoonTitle.toLowerCase()+"&api_key=d170b89569a0f5f6e085a0052a0e5b84");
+        const response = await fetch(`https://api.themoviedb.org/3/search/tv?query=`+cartoonTitle.toLowerCase()+"&api_key="+API_KEY);
         const jsonData = await response.json();
         return jsonData.results ; 
     }
@@ -289,7 +289,7 @@ async function getTVShowsForKids(cartoonTitle) {
 }
 async function getMoviesBySearch(query) {
     try{
-        const response = await fetch(`https://api.themoviedb.org/3/search/movie?query=`+query.toLowerCase()+"&api_key=d170b89569a0f5f6e085a0052a0e5b84");
+        const response = await fetch(`https://api.themoviedb.org/3/search/movie?query=`+query.toLowerCase()+"&api_key="+API_KEY);
         const jsonData = await response.json();
         return jsonData.results ; 
     }
@@ -299,7 +299,7 @@ async function getMoviesBySearch(query) {
 }
 async function getTVShowsBySearch(query) {
     try{
-        const response = await fetch(`https://api.themoviedb.org/3/search/tv?query=`+query.toLowerCase()+"&api_key=d170b89569a0f5f6e085a0052a0e5b84");
+        const response = await fetch(`https://api.themoviedb.org/3/search/tv?query=`+query.toLowerCase()+"&api_key="+API_KEY);
         const jsonData = await response.json();
         return jsonData.results ; 
     }
