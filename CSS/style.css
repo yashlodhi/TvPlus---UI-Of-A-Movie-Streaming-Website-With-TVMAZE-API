@@ -362,6 +362,7 @@ ul {
     .Movies_Showcase,#ResultArea{
         font-size: 2vw;
 }
+}
 @media screen and (max-width: 1000px) {
     #Nav_Section {
         font-size: 1.6vw;
