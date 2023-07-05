@@ -216,7 +216,6 @@ ul {
 }
 #Movie_Extra_Info p:nth-child(4){
     border-right: 0;
-    padding-left: 0;
 }
 #Description{
     display: inline-block;
@@ -499,6 +498,9 @@ ul {
     #Title{
         margin-left: 8vw;                              
     }
+    #Movie_Extra_Info p{
+    border-right: 1px solid rgb(233, 233, 233);
+}
     
 }
 @media screen and (max-width: 450px) {
