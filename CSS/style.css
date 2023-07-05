@@ -350,7 +350,7 @@ ul {
     margin-right: 2em;
     }
     #Nav_Section {
-        font-size: 1.2vw;
+        font-size: 1.25vw;
     }
     #Sidebar{
         width:10%;
@@ -365,8 +365,7 @@ ul {
 }
 @media screen and (max-width: 1000px) { 
     #Nav_Section {
-        font-size: 1.6vw;
-        padding: 0 0 0.5em;
+        font-size: 1.75vw;
     }
     #Account{
         display:none;
@@ -389,7 +388,7 @@ ul {
     }
     #Search_Box{
         margin-right: 1.5vw;
-        height: 3.5em;
+        height: 3em;
     }
     #Movies_Section{
         width:100vw;
@@ -425,6 +424,10 @@ ul {
     }
 }
 @media screen and (max-width: 700px) { 
+    #Nav_Section {
+        font-size: 0.1vw;
+        padding: 12em 0 ;
+    }
     #Logo_Name {
         font-size: 6vw;
     }
@@ -451,9 +454,7 @@ ul {
 @media screen and (max-width: 600px) {
     #Nav_Section{
         font-size: 2.6vw;
-    }
-    #Nav_Section{
-        padding: 0 0 0.5em;
+        padding: 0.5em 0 1em;
     }
     #Search_Box{
         width: 16em;
