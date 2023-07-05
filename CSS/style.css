@@ -388,7 +388,7 @@ ul {
     }
     #Search_Box{
         margin-right: 1.5vw;
-        height: 2.75em;
+        height: 3.5em;
     }
     #Movies_Section{
         width:100vw;
@@ -424,8 +424,14 @@ ul {
     }
 }
 @media screen and (max-width: 700px) { 
+    #Nav_Section{
+        padding: 1em 0;
+    }
     #Logo_Name {
         font-size: 6vw;
+    }
+    #Search_Account{
+        font-size: 2vw;
     }
     #Movie_Video_Image div{
         top:0em;
@@ -448,8 +454,12 @@ ul {
     #Nav_Section{
         font-size: 2.6vw;
     }
+    #Nav_Section{
+        padding: 0.5em 0;
+    }
     #Search_Box{
         width: 16em;
+        height: 2.75em;
     }
     #p{
         height: 28vh;
@@ -475,9 +485,6 @@ ul {
     }
 }
 @media screen and (max-width: 500px) {
-    #Nav_Section{
-        padding: 1em 0;
-    }
     #Movie_Video_Image div{
         height: 48vh ; 
     }
