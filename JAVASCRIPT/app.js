@@ -406,8 +406,9 @@ function ContentDisplay(parentArea,List){
               background.innerHTML = `<img src=${background_image_src}><p id="p"></p>`;
             }
 
-            videoJobFinished = true ; 
-            window.scrollTo(0, 0);
+            videoJobFinished = true ;  
+            description.scrollTo(0, 0) ; 
+            window.scrollTo(0, 0) ; 
           }
     }
 }
