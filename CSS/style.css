@@ -363,9 +363,10 @@ ul {
         font-size: 2vw;
 }
 }
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1000px) { 
     #Nav_Section {
         font-size: 1.6vw;
+        padding: 0 0 0.5em;
     }
     #Account{
         display:none;
@@ -424,9 +425,6 @@ ul {
     }
 }
 @media screen and (max-width: 700px) { 
-    #Nav_Section{
-        padding: 1em 0;
-    }
     #Logo_Name {
         font-size: 6vw;
     }
@@ -455,7 +453,7 @@ ul {
         font-size: 2.6vw;
     }
     #Nav_Section{
-        padding: 0.5em 0;
+        padding: 0 0 0.5em;
     }
     #Search_Box{
         width: 16em;
