@@ -453,7 +453,7 @@ ul {
 @media screen and (max-width: 600px) {
     #Nav_Section{
         font-size: 2.6vw;
-        padding: 0em 0 0.5em;
+        padding: 0.5em 0 1em ; 
     }
     #Logo_Name {
         font-size: 6.5vw;
