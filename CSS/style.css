@@ -227,7 +227,7 @@ ul {
     overflow: hidden;
     overflow-y:scroll;
     overflow-x:hidden;
-    scrollbar-width: 0;
+    scrollbar-width: none;
     scroll-behavior: smooth;
 }
 #WatchNow{
