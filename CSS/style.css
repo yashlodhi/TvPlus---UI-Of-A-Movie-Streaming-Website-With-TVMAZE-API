@@ -106,7 +106,7 @@ html, body {
     overflow: hidden;
     overflow-y:scroll;
     overflow-x:hidden;
-    scrollbar-width: 0;
+    scrollbar-width: none;
     scroll-behavior: smooth;
     position: sticky;
     top:0em;
@@ -272,7 +272,7 @@ ul {
     overflow: hidden;
     overflow-x:scroll;
     overflow-y:hidden;
-    scrollbar-width: 0em;
+    scrollbar-width: none;
     scroll-behavior:smooth;
     overscroll-behavior: contain;
     padding: 0em;
