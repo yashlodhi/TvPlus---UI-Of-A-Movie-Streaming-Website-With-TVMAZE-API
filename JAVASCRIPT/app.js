@@ -1,4 +1,4 @@
-let API_KEY = "d170b89569a0f5f6e085a0052a0e5b84" ;
+let API_KEY = "dXOg5i_q8g403p0agqX77GgDeBwb-TQt" ;
 let Video = document.querySelector('video') ;
 let WatchNow = document.querySelector('#WatchNow') ;
 Video.currentTime=8 ;
@@ -205,6 +205,7 @@ async function getTrendingShows() {
     }
     catch(error){
         console.log(error)
+      
     }
 }
 async function getNewReleases() {
