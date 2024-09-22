@@ -1,4 +1,5 @@
-let API_KEY = "dXOg5i_q8g403p0agqX77GgDeBwb-TQt" ;
+let API_KEY = "1bcc3e586b53706545459c2722ca737e" ; // TOOK NEW API KEY ON 22-9-2024
+// let API_KEY = "dXOg5i_q8g403p0agqX77GgDeBwb-TQt" ; 
 let Video = document.querySelector('video') ;
 let WatchNow = document.querySelector('#WatchNow') ;
 Video.currentTime=8 ;
